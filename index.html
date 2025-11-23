@@ -1,11 +1,117 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>D-LEAGUE</title>
-  </head>
-  <body>
-    <h1>D-LEAGUE 測試頁面</h1>
-    <p>你現在看到這個，就是網站成功部署！</p>
-  </body>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D-LEAGUE APP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- 頁面容器 -->
+  <div id="app">
+
+    <!-- ====== Header ====== -->
+    <header>
+      <h1>D-LEAGUE</h1>
+      <p class="subtitle">Mobile Web App v1</p>
+    </header>
+
+    <!-- ====== 各頁面內容區 ====== -->
+
+    <!-- 首頁 -->
+    <section class="page active" id="home-page">
+      <h2>首頁</h2>
+      <div class="card">
+        <h3>本輪賽程</h3>
+        <div id="home-schedule"></div>
+      </div>
+      <div class="card">
+        <h3>最新公告</h3>
+        <p>歡迎使用 D-LEAGUE App v1！</p>
+      </div>
+    </section>
+
+    <!-- 賽程表 -->
+    <section class="page" id="schedule-page">
+      <h2>賽程 / 積分榜</h2>
+      <div class="card">
+        <h3>賽程表</h3>
+        <div id="schedule-list"></div>
+      </div>
+      <div class="card">
+        <h3>積分榜</h3>
+        <div id="standings"></div>
+      </div>
+    </section>
+
+    <!-- 戰報產生器 -->
+    <section class="page" id="report-page">
+      <h2>戰報產生器</h2>
+      <div class="card">
+        <label>隊伍 A</label>
+        <input id="teamA" placeholder="Ex: Team A">
+
+        <label>隊伍 B</label>
+        <input id="teamB" placeholder="Ex: Team B">
+
+        <label>比分（A-B）</label>
+        <input id="score" placeholder="3-2">
+
+        <label>進球紀錄（每行一筆）</label>
+        <textarea id="goals" placeholder="10' 王小明\n23' 李大同"></textarea>
+
+        <button onclick="generateReport()">產生戰報</button>
+      </div>
+
+      <div class="card">
+        <h3>戰報輸出</h3>
+        <textarea id="report-output" readonly></textarea>
+        <button onclick="copyReport()">複製文字</button>
+      </div>
+    </section>
+
+    <!-- 後台 -->
+    <section class="page" id="admin-page">
+      <h2>後台功能</h2>
+
+      <div class="card">
+        <h3>比賽登錄（B2）</h3>
+        <button onclick="alert('功能尚未啟動，但結構已完成')">開始登錄</button>
+      </div>
+
+      <div class="card">
+        <h3>即時比賽紀錄器（B6）</h3>
+        <button onclick="alert('功能尚未啟動，但結構已完成')">啟動記錄器</button>
+      </div>
+
+      <div class="card">
+        <h3>報名管理（B5）</h3>
+        <button onclick="alert('功能尚未啟動，但結構已完成')">查看報名</button>
+      </div>
+
+      <div class="card">
+        <h3>組別管理（動態組別 1C）</h3>
+        <button onclick="alert('功能尚未啟動，但結構已完成')">管理組別</button>
+      </div>
+
+      <div class="card">
+        <h3>賽程管理</h3>
+        <button onclick="alert('功能尚未啟動，但結構已完成')">管理賽程</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ====== 底部導覽列 ====== -->
+  <nav class="navbar">
+    <button onclick="showPage('home-page')">首頁</button>
+    <button onclick="showPage('schedule-page')">賽程</button>
+    <button onclick="showPage('report-page')">戰報</button>
+    <button onclick="showPage('admin-page')">後台</button>
+  </nav>
+
+<script src="app.js"></script>
+</body>
 </html>
