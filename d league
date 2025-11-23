@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>D LEAGUE｜賽後戰報自動產出器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .field {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      width: 100%;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 8px 14px;
+      border-radius: 4px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      background: #222;
+      color: #fff;
+      transition: opacity 0.15s ease;
+    }
+
+    button.secondary {
+      background: #777;
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    button:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    .output-block {
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 8px;
+    }
+
+    .output-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .output-header span {
+      font-weight: 600;
+    }
+
+    .output-textarea {
+      width: 100%;
+      border: none;
+      background: transparent;
+      resize: vertical;
+      min-height: 140px;
+      padding: 4px;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .output-textarea:focus {
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 8px;
+      }
+
+      .container {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>D LEAGUE｜賽後戰報自動產出器 v1</h1>
+    <p style="font-size:13px; color:#666; margin-top:0;">
+      請輸入每場比賽資訊，按下「產生文案」後，就會自動生成 IG 貼文版本跟內部紀錄版本。
+    </p>
+
+    <!-- 基本資訊 -->
+    <h2>一、基本資訊</h2>
+    <div class="row">
+      <div class="field">
+        <label for="leagueName">聯賽名稱</label>
+        <input id="leagueName" type="text" value="D LEAGUE｜台南夢達七人足球聯賽" />
+      </div>
+      <div class="field">
+        <label for="division">組別 / 等級</label>
+        <select id="division">
+          <option value="L1">L1</option>
+          <option value="L2" selected>L2</option>
+          <option value="自訂">自訂（請在右側填）</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="divisionCustom">自訂組別名稱（選「自訂」時才會用）</label>
+        <input id="divisionCustom" type="text" placeholder="例：Beginner Group" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="round">輪次（第幾輪）</label>
+        <input id="round" type="number" min="1" value="1" />
+      </div>
+      <div class="field">
+        <label for="matchDate">比賽日期</label>
+        <input id="matchDate" type="date" />
+      </div>
+      <div class="field">
+        <label for="venue">場地</label>
+        <input id="venue" type="text" placeholder="例：仁德文賢國中" />
+      </div>
+    </div>
+
+    <!-- 比賽結果 -->
+    <h2>二、比賽結果</h2>
+    <div class="row">
+      <div class="field">
+        <label for="homeTeam">主隊名稱</label>
+        <input id="homeTeam" type="text" placeholder="例：鹿逐俱樂部" />
+      </div>
+      <div class="field">
+        <label for="awayTeam">客隊名稱</label>
+        <input id="awayTeam" type="text" placeholder="例：屏東野猿足球俱樂部" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="homeScore">主隊進球</label>
+        <input id="homeScore" type="number" min="0" value="0" />
+      </div>
+      <div class="field">
+        <label for="awayScore">客隊進球</label>
+        <input id="awayScore" type="number" min="0" value="0" />
+      </div>
+    </div>
+
+    <!-- 進球 / 關鍵片段 / MVP -->
+    <h2>三、進球紀錄跟重點</h2>
+    <div class="field">
+      <label for="goalDetails">
+        進球紀錄（自由格式，可一行一球，例如：<br />
+        鹿逐｜9號 前鋒 — 25' 禁區抽射破門）
+      </label>
+      <textarea id="goalDetails" placeholder="請輸入進球紀錄，一行一球，可包含分鐘、方式等。"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="keyMoments">
+        關鍵片段 / 比賽走向補充（可留空，系統會用比數自動寫一段基礎描述）
+      </label>
+      <textarea id="keyMoments" placeholder="例：上半場鹿逐率先破門，下半場屏東野猿連進兩球完成逆轉。"></textarea>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="mvpPlayer">本場 MVP / 關鍵球員（可留空）</label>
+        <input id="mvpPlayer" type="text" placeholder="例：屏東野猿 10 號 中場張博宇" />
+      </div>
+      <div class="field">
+        <label for="hashtags">Hashtag（用空白分隔）</label>
+        <input
+          id="hashtags"
+          type="text"
+          value="#DLEAGUE #台南足球 #七人制足球 #Dreamsport"
+        />
+      </div>
+    </div>
+
+    <!-- 按鈕 -->
+    <div class="btn-row">
+      <button id="generateBtn">產生文案</button>
+      <button id="resetBtn" class="secondary">清空輸入</button>
+    </div>
+
+    <!-- 輸出：IG 版 -->
+    <h2>四、輸出文字</h2>
+
+    <div class="output-block">
+      <div class="output-header">
+        <span>IG 貼文版本</span>
+        <button id="copyIgBtn" class="secondary" disabled>複製 IG 文字</button>
+      </div>
+      <textarea id="igOutput" class="output-textarea" readonly></textarea>
+    </div>
+
+    <!-- 輸出：內部紀錄版 -->
+    <div class="output-block">
+      <div class="output-header">
+        <span>內部紀錄版本（賽季總表、雜誌整理可用）</span>
+        <button id="copyInternalBtn" class="secondary" disabled>複製紀錄文字</button>
+      </div>
+      <textarea id="internalOutput" class="output-textarea" readonly></textarea>
+    </div>
+  </div>
+
+  <script>
+    function formatDateToText(dateStr) {
+      if (!dateStr) return "";
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return "";
+      const y = d.getFullYear();
+      const m = d.getMonth() + 1;
+      const day = d.getDate();
+      return y + " 年 " + m + " 月 " + day + " 日";
+    }
+
+    function buildGameTone(homeScore, awayScore) {
+      const h = Number(homeScore);
+      const a = Number(awayScore);
+      const diff = Math.abs(h - a);
+
+      if (isNaN(h) || isNaN(a)) return "";
+
+      if (h === a) {
+        return "兩隊整場比賽互有攻守，比數始終拉得很近，最後在平手比數下畫下句點。";
+      }
+
+      if (diff === 1) {
+        return "比數一路緊咬，兩隊在中場跟禁區附近都給了不少壓力，最後在細節處由一方帶走關鍵三分。";
+      }
+
+      if (diff === 2) {
+        return "在關鍵球處理上有明顯差距，領先的一方把握住幾次好機會，把比數慢慢拉開。";
+      }
+
+      return "比賽節奏由一方主導，比分差距較大，落後的一方雖然撐到終場，但還是沒能追回比數。";
+    }
+
+    function buildScoreLine(homeTeam, homeScore, awayTeam, awayScore) {
+      if (!homeTeam && !awayTeam) return "";
+      return homeTeam + " " + homeScore + " : " + awayScore + " " + awayTeam;
+    }
+
+    function buildIgCaption(data) {
+      const {
+        leagueName,
+        divisionLabel,
+        round,
+        matchDate,
+        venue,
+        homeTeam,
+        awayTeam,
+        homeScore,
+        awayScore,
+        goalDetails,
+        keyMoments,
+        mvpPlayer,
+        hashtags,
+      } = data;
+
+      const roundText = round ? "第 " + round + " 輪" : "";
+      const dateText = formatDateToText(matchDate);
+      const scoreLine = buildScoreLine(homeTeam, homeScore, awayTeam, awayScore);
+      const gameTone =
+        keyMoments && keyMoments.trim().length > 0
+          ? keyMoments.trim()
+          : buildGameTone(homeScore, awayScore);
+
+      const venueText = venue
+        ? "這場比賽在" + venue + "進行，"
+        : "這場比賽在本輪指定場地進行，";
+
+      const goalPart = goalDetails && goalDetails.trim().length > 0
+        ? "進球紀錄：\n" + goalDetails.trim() + "\n\n"
+        : "";
+
+      const mvpPart = mvpPlayer && mvpPlayer.trim().length > 0
+        ? "本場關鍵球員：" + mvpPlayer.trim() + "\n"
+        : "";
+
+      const hashtagPart = hashtags && hashtags.trim().length > 0
+        ? "\n" + hashtags.trim()
+        : "";
+
+      let caption = "";
+
+      caption += "【賽後戰報⚽️】\n\n";
+      caption += leagueName + "｜" + divisionLabel + " " + roundText + "\n";
+      caption += scoreLine + "\n\n";
+
+      if (dateText) {
+        caption += dateText + "，";
+      }
+      caption += venueText + gameTone + "\n\n";
+
+      caption += goalPart;
+      caption += mvpPart;
+      caption += hashtagPart;
+
+      return caption.trim();
+    }
+
+    function buildInternalNote(data) {
+      const {
+        leagueName,
+        divisionLabel,
+        round,
+        matchDate,
+        venue,
+        homeTeam,
+        awayTeam,
+        homeScore,
+        awayScore,
+        goalDetails,
+        keyMoments,
+        mvpPlayer,
+      } = data;
+
+      const dateText = formatDateToText(matchDate);
+      const scoreLine = buildScoreLine(homeTeam, homeScore, awayTeam, awayScore);
+
+      let text = "";
+      text += "[聯賽] " + leagueName + "\n";
+      text += "[組別] " + divisionLabel + "\n";
+      text += "[輪次] 第 " + (round || "-") + " 輪\n";
+      text += "[日期] " + (dateText || "-") + "\n";
+      text += "[場地] " + (venue || "-") + "\n";
+      text += "[比數] " + scoreLine + "\n\n";
+
+      text += "[進球紀錄]\n";
+      text += goalDetails && goalDetails.trim().length > 0
+        ? goalDetails.trim() + "\n"
+        : "-\n";
+      text += "\n";
+
+      text += "[關鍵片段 / 比賽走向]\n";
+      if (keyMoments && keyMoments.trim().length > 0) {
+        text += keyMoments.trim() + "\n";
+      } else {
+        text += buildGameTone(homeScore, awayScore) + "\n";
+      }
+      text += "\n";
+
+      text += "[MVP / 關鍵球員]\n";
+      text += mvpPlayer && mvpPlayer.trim().length > 0
+        ? mvpPlayer.trim() + "\n"
+        : "-\n";
+
+      return text.trim();
+    }
+
+    function getDivisionLabel() {
+      const division = document.getElementById("division").value;
+      const divisionCustom = document.getElementById("divisionCustom").value.trim();
+      if (division === "自訂") {
+        return divisionCustom || "自訂組別";
+      }
+      return division;
+    }
+
+    document.getElementById("generateBtn").addEventListener("click", function () {
+      const data = {
+        leagueName: document.getElementById("leagueName").value.trim() || "D LEAGUE",
+        divisionLabel: getDivisionLabel(),
+        round: document.getElementById("round").value,
+        matchDate: document.getElementById("matchDate").value,
+        venue: document.getElementById("venue").value.trim(),
+        homeTeam: document.getElementById("homeTeam").value.trim(),
+        awayTeam: document.getElementById("awayTeam").value.trim(),
+        homeScore: document.getElementById("homeScore").value || "0",
+        awayScore: document.getElementById("awayScore").value || "0",
+        goalDetails: document.getElementById("goalDetails").value,
+        keyMoments: document.getElementById("keyMoments").value,
+        mvpPlayer: document.getElementById("mvpPlayer").value,
+        hashtags: document.getElementById("hashtags").value,
+      };
+
+      const igText = buildIgCaption(data);
+      const internalText = buildInternalNote(data);
+
+      const igOutput = document.getElementById("igOutput");
+      const internalOutput = document.getElementById("internalOutput");
+      const copyIgBtn = document.getElementById("copyIgBtn");
+      const copyInternalBtn = document.getElementById("copyInternalBtn");
+
+      igOutput.value = igText;
+      internalOutput.value = internalText;
+
+      copyIgBtn.disabled = !igText;
+      copyInternalBtn.disabled = !internalText;
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function () {
+      const inputsToClear = [
+        "matchDate",
+        "venue",
+        "homeTeam",
+        "awayTeam",
+        "homeScore",
+        "awayScore",
+        "goalDetails",
+        "keyMoments",
+        "mvpPlayer",
+      ];
+      inputsToClear.forEach(function (id) {
+        const el = document.getElementById(id);
+        if (el.type === "number") {
+          el.value = "0";
+        } else {
+          el.value = "";
+        }
+      });
+
+      document.getElementById("igOutput").value = "";
+      document.getElementById("internalOutput").value = "";
+      document.getElementById("copyIgBtn").disabled = true;
+      document.getElementById("copyInternalBtn").disabled = true;
+    });
+
+    function copyToClipboard(textareaId) {
+      const el = document.getElementById(textareaId);
+      el.select();
+      el.setSelectionRange(0, 99999);
+      try {
+        const ok = document.execCommand("copy");
+        if (!ok && navigator.clipboard) {
+          navigator.clipboard.writeText(el.value);
+        }
+      } catch (e) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(el.value);
+        }
+      }
+    }
+
+    document.getElementById("copyIgBtn").addEventListener("click", function () {
+      copyToClipboard("igOutput");
+    });
+
+    document.getElementById("copyInternalBtn").addEventListener("click", function () {
+      copyToClipboard("internalOutput");
+    });
+  </script>
+</body>
+</html>
