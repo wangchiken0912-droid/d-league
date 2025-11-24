@@ -1,0 +1,81 @@
+{
+  "league_info": {
+    "name": "D LEAGUE｜台南夢達七人足球聯賽 25/26",
+    "logo": "https://cdn.store-assets.com/s/783745/f/15291800.png",
+    "venue": "台南市立仁德文賢國中人工草",
+    "season": "2025/2026"
+  },
+  "teams": [
+    { "id": "t1", "name": "嘉義諸羅山FC", "league": "L1", "colors": ["#90d1d2", "#0e3679"], "logo": "https://cdn.store-assets.com/s/783745/f/16146068.png" },
+    { "id": "t2", "name": "酒號矯正署", "league": "L1", "colors": ["#000000", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146063.png" },
+    { "id": "t3", "name": "銅雀足球俱樂部", "league": "L1", "colors": ["#2a2b30", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146064.png" },
+    { "id": "t4", "name": "陳公舘", "league": "L1", "colors": ["#000000", "#8ac4e1"], "logo": "https://cdn.store-assets.com/s/783745/f/16146061.png" },
+    { "id": "t5", "name": "鹿逐俱樂部", "league": "L2", "colors": ["#385984", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146059.png" },
+    { "id": "t6", "name": "屏東野猿足球俱樂部", "league": "L2", "colors": ["#563e92", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146062.png" },
+    { "id": "t7", "name": "瘋Dog", "league": "L2", "colors": ["#ed8992", "#000000"], "logo": "https://cdn.store-assets.com/s/783745/f/16146067.png" },
+    { "id": "t8", "name": "蒼龍FC", "league": "L2", "colors": ["#0c2450", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146065.png" },
+    { "id": "t9", "name": "PPI TAINAN", "league": "L2", "colors": ["#004026", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146066.png" },
+    { "id": "t10", "name": "鳥仕足球俱樂部", "league": "L2", "colors": ["#2f4d4f", "#ffffff"], "logo": "https://cdn.store-assets.com/s/783745/f/16146060.png" }
+  ],
+  "schedule": [
+    { "date": "2025/10/19", "time": "10:00", "league": "L2", "round": 1, "home": "鹿逐俱樂部", "away": "屏東野猿足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/10/19", "time": "11:00", "league": "L2", "round": 1, "home": "瘋Dog", "away": "蒼龍FC", "score_home": null, "score_away": null },
+    { "date": "2025/10/19", "time": "13:00", "league": "L1", "round": 1, "home": "嘉義諸羅山FC", "away": "酒號矯正署", "score_home": null, "score_away": null },
+    { "date": "2025/10/19", "time": "14:00", "league": "L1", "round": 1, "home": "銅雀足球俱樂部", "away": "陳公舘", "score_home": null, "score_away": null },
+    { "date": "2025/10/19", "time": "15:00", "league": "L2", "round": 1, "home": "PPI TAINAN", "away": "鳥仕足球俱樂部", "score_home": null, "score_away": null },
+    
+    { "date": "2025/11/02", "time": "13:00", "league": "L1", "round": 2, "home": "嘉義諸羅山FC", "away": "陳公舘", "score_home": null, "score_away": null },
+    { "date": "2025/11/02", "time": "14:00", "league": "L2", "round": 2, "home": "PPI TAINAN", "away": "鹿逐俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/11/02", "time": "15:00", "league": "L2", "round": 2, "home": "瘋Dog", "away": "鳥仕足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/11/02", "time": "16:00", "league": "L2", "round": 2, "home": "蒼龍FC", "away": "屏東野猿足球俱樂部", "score_home": null, "score_away": null },
+
+    { "date": "2025/11/16", "time": "13:00", "league": "L2", "round": 3, "home": "鳥仕足球俱樂部", "away": "鹿逐俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/11/16", "time": "14:00", "league": "L2", "round": 3, "home": "瘋Dog", "away": "屏東野猿足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/11/16", "time": "15:00", "league": "L1", "round": 2, "home": "酒號矯正署", "away": "銅雀足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/11/16", "time": "16:00", "league": "L2", "round": 3, "home": "蒼龍FC", "away": "PPI TAINAN", "score_home": null, "score_away": null },
+
+    { "date": "2025/12/07", "time": "10:00", "league": "L2", "round": 4, "home": "屏東野猿足球俱樂部", "away": "PPI TAINAN", "score_home": null, "score_away": null },
+    { "date": "2025/12/07", "time": "11:00", "league": "L2", "round": 4, "home": "瘋Dog", "away": "鹿逐俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/12/07", "time": "13:00", "league": "L1", "round": 3, "home": "陳公舘", "away": "酒號矯正署", "score_home": null, "score_away": null },
+    { "date": "2025/12/07", "time": "14:00", "league": "L1", "round": 3, "home": "嘉義諸羅山FC", "away": "銅雀足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2025/12/07", "time": "15:00", "league": "L2", "round": 4, "home": "鳥仕足球俱樂部", "away": "蒼龍FC", "score_home": null, "score_away": null },
+
+    { "date": "2026/01/11", "time": "10:00", "league": "L1", "round": 4, "home": "酒號矯正署", "away": "嘉義諸羅山FC", "score_home": null, "score_away": null },
+    { "date": "2026/01/11", "time": "11:00", "league": "L1", "round": 4, "home": "陳公舘", "away": "銅雀足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/01/11", "time": "13:00", "league": "L2", "round": 5, "home": "瘋Dog", "away": "PPI TAINAN", "score_home": null, "score_away": null },
+    { "date": "2026/01/11", "time": "14:00", "league": "L2", "round": 5, "home": "屏東野猿足球俱樂部", "away": "鳥仕足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/01/11", "time": "15:00", "league": "L2", "round": 5, "home": "鹿逐俱樂部", "away": "蒼龍FC", "score_home": null, "score_away": null },
+
+    { "type": "break", "desc": "季中轉會窗 (Transfer Window)", "start": "2026/01/11", "end": "2026/02/05" },
+
+    { "date": "2026/02/08", "time": "10:00", "league": "L2", "round": 6, "home": "鳥仕足球俱樂部", "away": "PPI TAINAN", "score_home": null, "score_away": null },
+    { "date": "2026/02/08", "time": "11:00", "league": "L2", "round": 6, "home": "蒼龍FC", "away": "瘋Dog", "score_home": null, "score_away": null },
+    { "date": "2026/02/08", "time": "13:00", "league": "L2", "round": 6, "home": "屏東野猿足球俱樂部", "away": "鹿逐俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/02/08", "time": "14:00", "league": "L1", "round": 5, "home": "陳公舘", "away": "嘉義諸羅山FC", "score_home": null, "score_away": null },
+    { "date": "2026/02/08", "time": "15:00", "league": "L1", "round": 5, "home": "銅雀足球俱樂部", "away": "酒號矯正署", "score_home": null, "score_away": null },
+
+    { "date": "2026/03/08", "time": "10:00", "league": "L1", "round": 6, "home": "酒號矯正署", "away": "陳公舘", "score_home": null, "score_away": null },
+    { "date": "2026/03/08", "time": "11:00", "league": "L1", "round": 6, "home": "銅雀足球俱樂部", "away": "嘉義諸羅山FC", "score_home": null, "score_away": null },
+    { "date": "2026/03/08", "time": "13:00", "league": "L2", "round": 7, "home": "鳥仕足球俱樂部", "away": "瘋Dog", "score_home": null, "score_away": null },
+    { "date": "2026/03/08", "time": "14:00", "league": "L2", "round": 7, "home": "鹿逐俱樂部", "away": "PPI TAINAN", "score_home": null, "score_away": null },
+    { "date": "2026/03/08", "time": "15:00", "league": "L2", "round": 7, "home": "屏東野猿足球俱樂部", "away": "蒼龍FC", "score_home": null, "score_away": null },
+
+    { "date": "2026/03/22", "time": "10:00", "league": "L2", "round": 8, "home": "鹿逐俱樂部", "away": "鳥仕足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/03/22", "time": "11:00", "league": "L2", "round": 8, "home": "PPI TAINAN", "away": "蒼龍FC", "score_home": null, "score_away": null },
+    { "date": "2026/03/22", "time": "13:00", "league": "L1", "round": 7, "home": "銅雀足球俱樂部", "away": "陳公舘", "score_home": null, "score_away": null },
+    { "date": "2026/03/22", "time": "14:00", "league": "L1", "round": 7, "home": "嘉義諸羅山FC", "away": "酒號矯正署", "score_home": null, "score_away": null },
+    { "date": "2026/03/22", "time": "15:00", "league": "L2", "round": 8, "home": "屏東野猿足球俱樂部", "away": "瘋Dog", "score_home": null, "score_away": null },
+
+    { "date": "2026/04/12", "time": "10:00", "league": "L2", "round": 9, "home": "鹿逐俱樂部", "away": "瘋Dog", "score_home": null, "score_away": null },
+    { "date": "2026/04/12", "time": "11:00", "league": "L1", "round": 8, "home": "酒號矯正署", "away": "銅雀足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/04/12", "time": "13:00", "league": "L1", "round": 8, "home": "嘉義諸羅山FC", "away": "陳公舘", "score_home": null, "score_away": null },
+    { "date": "2026/04/12", "time": "14:00", "league": "L2", "round": 9, "home": "PPI TAINAN", "away": "屏東野猿足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/04/12", "time": "15:00", "league": "L2", "round": 9, "home": "蒼龍FC", "away": "鳥仕足球俱樂部", "score_home": null, "score_away": null },
+
+    { "date": "2026/04/26", "time": "10:00", "league": "L2", "round": 10, "home": "PPI TAINAN", "away": "瘋Dog", "score_home": null, "score_away": null },
+    { "date": "2026/04/26", "time": "11:00", "league": "L2", "round": 10, "home": "蒼龍FC", "away": "鹿逐俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/04/26", "time": "13:00", "league": "L1", "round": 9, "home": "嘉義諸羅山FC", "away": "銅雀足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/04/26", "time": "14:00", "league": "L2", "round": 10, "home": "鳥仕足球俱樂部", "away": "屏東野猿足球俱樂部", "score_home": null, "score_away": null },
+    { "date": "2026/04/26", "time": "15:00", "league": "L1", "round": 9, "home": "陳公舘", "away": "酒號矯正署", "score_home": null, "score_away": null }
+  ]
+}

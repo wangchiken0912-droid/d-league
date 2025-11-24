@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D LEAGUE | 台南夢達七人足球聯賽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased">
+
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <img src="https://cdn.store-assets.com/s/783745/f/15291800.png" class="h-12" alt="D LEAGUE Logo">
+                    <span class="font-bold text-xl tracking-wider hidden sm:block">D LEAGUE</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-white px-3 py-2 rounded-md text-sm font-medium bg-slate-800">首頁</a>
+                        <a href="schedule.html" class="text-gray-300 hover:text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium">賽程與結果</a>
+                        <a href="teams.html" class="text-gray-300 hover:text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium">參賽球隊</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=2830&auto=format&fit=crop')] bg-cover bg-center opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <img src="https://cdn.store-assets.com/s/783745/f/15291800.png" alt="D LEAGUE" class="h-32 md:h-48 mx-auto mb-8 drop-shadow-2xl animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4 font-sans-tc">台南夢達七人足球聯賽</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light">25/26 賽季 | L1 & L2</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="schedule.html" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full transition transform hover:scale-105">查看賽程</a>
+                <a href="teams.html" class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-full transition transform hover:scale-105">認識球隊</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-16 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8 text-indigo-400">聯賽場地</h2>
+            <div class="inline-block p-6 bg-slate-800 rounded-xl border border-slate-700">
+                <p class="text-xl font-medium flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    台南市立仁德文賢國中人工草
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 py-8 border-t border-slate-800 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 D LEAGUE. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

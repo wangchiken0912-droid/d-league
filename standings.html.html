@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>積分榜 - ELITE LEAGUE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold league-font tracking-wider text-sky-400">ELITE <span class="text-white">LEAGUE</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-gray-300 font-medium hover:text-sky-400 transition">首頁</a>
+                <a href="standings.html" class="nav-link text-white font-medium hover:text-sky-400 transition">積分榜</a>
+                <a href="schedule.html" class="nav-link text-gray-300 font-medium hover:text-sky-400 transition">賽程中心</a>
+                <a href="teams.html" class="nav-link text-gray-300 font-medium hover:text-sky-400 transition">球隊巡禮</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 px-6 py-4 space-y-4">
+            <a href="index.html" class="block text-gray-300">首頁</a>
+            <a href="standings.html" class="block text-white">積分榜</a>
+            <a href="schedule.html" class="block text-gray-300">賽程中心</a>
+            <a href="teams.html" class="block text-gray-300">球隊巡禮</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <h1 class="text-4xl font-bold mb-8 text-center md:text-left">LEAGUE STANDINGS</h1>
+
+        <div class="overflow-x-auto bg-slate-800 rounded-lg shadow-xl">
+            <table class="w-full text-left custom-table">
+                <thead>
+                    <tr>
+                        <th class="p-4">排名</th>
+                        <th class="p-4">球隊</th>
+                        <th class="p-4 text-center">賽</th>
+                        <th class="p-4 text-center">勝</th>
+                        <th class="p-4 text-center">平</th>
+                        <th class="p-4 text-center">負</th>
+                        <th class="p-4 text-center">進/失</th>
+                        <th class="p-4 text-center text-sky-400">積分</th>
+                        <th class="p-4 text-center">近況</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-300">
+                    <tr class="border-b border-slate-700">
+                        <td class="p-4"><span class="bg-sky-500 text-white px-2 py-1 rounded text-xs">1</span></td>
+                        <td class="p-4 font-bold text-white flex items-center gap-3">
+                            <span class="text-2xl">🦁</span> Lions FC
+                        </td>
+                        <td class="p-4 text-center">12</td>
+                        <td class="p-4 text-center">10</td>
+                        <td class="p-4 text-center">1</td>
+                        <td class="p-4 text-center">1</td>
+                        <td class="p-4 text-center">+24</td>
+                        <td class="p-4 text-center font-bold text-sky-400 text-lg">31</td>
+                        <td class="p-4 text-center">
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-700">
+                        <td class="p-4"><span class="bg-slate-600 text-white px-2 py-1 rounded text-xs">2</span></td>
+                        <td class="p-4 font-bold text-white flex items-center gap-3">
+                            <span class="text-2xl">🦅</span> Golden Eagles
+                        </td>
+                        <td class="p-4 text-center">12</td>
+                        <td class="p-4 text-center">9</td>
+                        <td class="p-4 text-center">2</td>
+                        <td class="p-4 text-center">1</td>
+                        <td class="p-4 text-center">+18</td>
+                        <td class="p-4 text-center font-bold text-sky-400 text-lg">29</td>
+                         <td class="p-4 text-center">
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-gray-500 mx-0.5"><i class="fas fa-minus-circle"></i></span>
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-700">
+                        <td class="p-4"><span class="bg-slate-600 text-white px-2 py-1 rounded text-xs">3</span></td>
+                        <td class="p-4 font-bold text-white flex items-center gap-3">
+                            <span class="text-2xl">🐉</span> Dragons United
+                        </td>
+                        <td class="p-4 text-center">12</td>
+                        <td class="p-4 text-center">8</td>
+                        <td class="p-4 text-center">0</td>
+                        <td class="p-4 text-center">4</td>
+                        <td class="p-4 text-center">+5</td>
+                        <td class="p-4 text-center font-bold text-sky-400 text-lg">24</td>
+                         <td class="p-4 text-center">
+                            <span class="text-red-500 mx-0.5"><i class="fas fa-times-circle"></i></span>
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-green-500 mx-0.5"><i class="fas fa-check-circle"></i></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+     <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 ELITE LEAGUE. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
